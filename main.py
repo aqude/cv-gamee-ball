@@ -17,7 +17,7 @@ h = need.shape[0]
 
 print("Для старта скрипта нажмите: " + "s")
 print("Для его остановки: " + "q")
-pyautogui.PAUSE = 0.01
+pyautogui.PAUSE = 0.13
 keyboard.wait("s")
 loop_time = time()
 
@@ -27,15 +27,15 @@ def get_screen(screen):
 
 
 def gui_click(max_val, max_loc):
-    if max_val >= .40:
+    if max_val >= .80:
         # cv2.rectangle(scr, max_loc, (max_loc[0] + w, max_loc[1] + h), (0,255,255), 2)
         pyautogui.click(
-            x = max_loc[0], 
-            y = max_loc[1]
+            x = max_loc[0] + 30, 
+            y = max_loc[1] + 30
         )
     else:
         pyautogui.click(
-            x = 41,
+            x = 120,
             y = 1370
         )
 
@@ -58,11 +58,11 @@ while True:
     # cv2.imshow('result', result)
     cv2.imshow('scr', scr)
     cv2.waitKey(1)
-    
+    print(max_val)
     if keyboard.is_pressed('q'): 
         break
 
-    print('FPS {}'.format(1 / (time() - loop_time))) 
+    # qprint('FPS {}'.format(1 / (time() - loop_time))) 
     
     loop_time = time() 
     
